@@ -1,0 +1,11 @@
+#!/usr/bin/emacs --script
+(require 'org-agenda)
+
+(if (boundp 'org-user-agenda-files)
+    (setq org-agenda-files org-user-agenda-files)
+  (setq org-agenda-files (apply 'append
+                                (mapcar
+                                 (lambda (directory)
+                                   (directory-files-recursively
+                                    directory org-agenda-file-regexp))
+                                 '("~/1-Agenda")))))

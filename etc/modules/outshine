@@ -1,0 +1,8 @@
+#!/usr/bin/emacs --script
+
+(use-package outshine
+  :diminish outshine-mode
+  :straight t
+  :defer t
+  :config
+  (add-hook 'prog-mode-hook 'outshine-mode))

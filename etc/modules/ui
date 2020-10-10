@@ -1,0 +1,7 @@
+#!/usr/bin/emacs --script
+
+(modular-config-load-modules '(diminish modeline window-select zen which-key hydra))
+
+;;; Load tango-dark as the default theme if one is not loaded already
+(if (not custom-enabled-themes)
+    (load-theme 'tango-dark t))

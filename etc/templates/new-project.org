@@ -1,0 +1,3 @@
+* TODO %^{Project name}
+DEADLINE: %^t
+%^{OUTCOME}p

@@ -1,0 +1,6 @@
+#!/usr/bin/emacs --script
+
+
+(use-package org-cliplink
+  :straight t
+  :defer t)

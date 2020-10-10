@@ -1,0 +1,37 @@
+#!/usr/bin/emacs --script
+
+;;; company
+
+(use-package company
+  :straight t
+  :diminish company-mode
+  :defer t
+  :commands company-complete-common company-manual-begin company-grab-line
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-idle-delay 0.25
+        company-minimum-prefix-length 2
+        company-tooltip-limit 14
+        company-tooltip-align-annotations t
+        company-require-match 'never
+        company-global-modes
+        '(not erc-mode message-mode help-mode gud-mode)
+        company-frontends '(company-pseudo-tooltip-frontend
+                            company-echo-metadata-frontend)
+
+        ;; Buffer-local backends will be computed when loading a major mode, so
+        ;; only specify a global default here.
+        company-backends  '(company-capf)
+
+        ;; Company overrides `company-active-map' based on
+        ;; `company-auto-complete-chars'; no magic please!
+        company-auto-complete-chars nil
+
+        ;; Only search the current buffer for `company-dabbrev' (a backend that
+        ;; suggests text your open buffers). This prevents Company from causing
+        ;; lag once you have a lot of buffers open.
+        company-dabbrev-other-buffers nil
+        ;; Make `company-dabbrev' fully case-sensitive, to improve UX with
+        ;; domain-specific words with particular casing.
+        company-dabbrev-ignore-case nil
+        company-dabbrev-downcase nil))

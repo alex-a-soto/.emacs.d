@@ -1,0 +1,7 @@
+#!/usr/bin/emacs --script
+
+
+
+(use-package org-download
+  :straight t
+  :defer t)

@@ -1,0 +1,27 @@
+#!/usr/bin/emacs --script
+
+(use-package switch-window
+  :straight t
+  :defer t
+  :init
+  (global-set-key [remap other-window] #'switch-window)
+  :config
+  (setq switch-window-shortcut-style 'qwerty
+        switch-window-qwerty-shortcuts '("a" "s" "d" "f" "g" "h" "j" "k" "l")))
+
+
+(use-package ace-window
+  :straight t
+  :defer t
+  :init
+  (global-set-key [remap other-window] #'ace-window)
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (setq aw-scope 'frame
+        aw-background t))
+
+
+(use-package winum
+  :straight t
+    :config
+  (winum-mode +1))

@@ -1,0 +1,6 @@
+#!/usr/bin/emacs --script
+
+(use-package prescient
+  :straight t
+  :config
+  (prescient-persist-mode +1))

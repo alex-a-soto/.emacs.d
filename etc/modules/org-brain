@@ -1,0 +1,6 @@
+#!/usr/bin/emacs --script
+
+
+(use-package org-brain
+  :straight t
+  :defer t)

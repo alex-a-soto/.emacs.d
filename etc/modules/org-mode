@@ -1,0 +1,3 @@
+#!/usr/bin/emacs --script
+
+(straight-use-package '(org :local-repo nil :defer t))

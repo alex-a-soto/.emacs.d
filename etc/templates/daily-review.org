@@ -1,0 +1,17 @@
+* Daily Review
+%(org-insert-time-stamp nil t nil nil nil nil)
+
+- [ ] Clear Physical Desktop / Inbox / Notebook
+<as/goto-inbox>
+
+- [ ] Clear Email Inboxes
+  - [ ] <progn (browse-url "https://mail.google.com/mail/u/0/#inbox")>
+  - [ ] <progn (browse-url "https://mail.google.com/mail/u/1/#inbox")>
+
+- [ ] Process streams as inboxes - record tasks, read it later, file notes
+<progn (browse-url "https://app.slack.com/client/T03SUKX53/unreads")>
+
+- [ ] Capture any remaining open loops as tasks
+
+- [ ] Schedule tomorrows's tasks (immersive -> process, deep -> shallow):
+<progn (org-agenda nil "a")>

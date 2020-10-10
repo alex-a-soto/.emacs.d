@@ -1,0 +1,2 @@
+#!/usr/bin/emacs --script
+(use-package scratch :straight t :defer t)

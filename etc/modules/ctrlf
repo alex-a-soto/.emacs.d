@@ -1,0 +1,7 @@
+#!/usr/bin/emacs --script
+
+(use-package ctrlf
+  :straight t
+  :defer t
+  :init
+  (ctrlf-mode +1))

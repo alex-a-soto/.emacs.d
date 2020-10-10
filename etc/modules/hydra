@@ -1,0 +1,9 @@
+#!/usr/bin/emacs --script
+
+(use-package hydra
+  :straight t
+  :defer t
+  :commands (hydra-move-splitter-up
+             hydra-move-splitter-down
+             hydra-move-splitter-right
+             hydra-move-splitter-left))

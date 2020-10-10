@@ -1,0 +1,23 @@
+#!/usr/bin/emacs --script
+
+(use-package org-journal
+  :straight t
+  :config
+  (require 'org-journal)
+
+  (defun org-journal-find-location ()
+  ;; Open today's journal, but specify a non-nil prefix argument in order to
+  ;; inhibit inserting the heading; org-capture will insert the heading.
+  (org-journal-new-entry t)
+  ;; Position point on the journal's top-level heading so that org-capture
+  ;; will add the new entry as a child entry.
+  (goto-char (point-min)))
+
+  (setq org-journal-dir "~/2-Linked/HUD/")
+  (setq org-journal-time-prefix "** ")
+  (setq org-journal-time-format "")
+  (setq org-journal-file-format "%Y-%m-%d.org")
+
+  (setq org-journal-carryover-items  "TODO=\"TODO\"|TODO=\"NEXT\"|TODO=\"WAITING\"|TODO=\"HOLD\"|TODO=\"CANCELLED\"")
+
+  )

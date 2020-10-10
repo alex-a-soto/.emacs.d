@@ -1,0 +1,40 @@
+* Monthly Review
+:PROPERTIES:
+:SORT:     TYPE
+:END:
+%(org-insert-time-stamp nil t nil nil nil nil)
+
+** Review Life Goals
+- [ ] Scroll through completed goals.
+- [ ] Move newly completed goals to “Completed” heading for archives.
+- [ ] Update timelines for existing goals.
+- [ ] Update wording/definition/scale of goals.
+- [ ] Add any new goals, and corresponding projects if needed.
+** Review Project List
+<progn (project-overview)>
+
+- [ ] Archive any completed or inactive projects
+- [ ] Update outcome for each project, making sure corresponding goal is listed under each project in Org-Mode
+- [ ] Order projects by general priority in Org-Mode
+- [ ] Replicate updated Project List as needed
+  - [ ] Org-Mode
+  - [ ] Documents Folder
+** Review Areas of Responsibility
+<progn (areas-overview)>
+
+- [ ] Evaluate areas and capture any new tasks, projects, habits, routines, or decisions needed.
+- [ ] Replicate list of areas across systems.
+  - [ ] Org-Mode
+  - [ ] Documents Folder
+** Review Personal Narrative Vision
+- [ ] Bold possible new projects or areas that need renewed focus.
+- [ ] Remove formatting of completed parts, as your dreams turn into reality
+** Review and rearticulate 12 Favorite Problems
+** Review Someday / Maybe list
+- [ ] Review Someday/Maybe List
+- [ ] Assign next actions or new projects to any that I might want to consider doing
+** Pick someone from contact list to keep in touch with
+** Re-prioritize tasks
+- [ ] Review next actions and re-apply priority tags, accounting for priority drift
+** Extract highlights from finished ebooks
+- [ ] Import text and images into note system

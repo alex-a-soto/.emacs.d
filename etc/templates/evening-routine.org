@@ -1,0 +1,6 @@
+* Evening Routine
+:PROPERTIES:
+:SORT:     TYPE
+:END:
+
+%(org-insert-time-stamp nil t nil nil nil nil)

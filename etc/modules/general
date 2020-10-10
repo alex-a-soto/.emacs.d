@@ -1,0 +1,4 @@
+#!/usr/bin/emacs --script
+
+
+(use-package general :straight t)

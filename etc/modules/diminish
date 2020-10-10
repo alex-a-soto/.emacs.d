@@ -1,0 +1,8 @@
+#!/usr/bin/emacs --script
+
+(use-package diminish
+  :straight t
+  :init
+  (diminish 'outline-minor-mode)
+  (diminish 'eldoc-mode)
+  )

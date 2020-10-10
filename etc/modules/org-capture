@@ -1,0 +1,22 @@
+#!/usr/bin/emacs --script
+
+(setq org-inbox-file "~/2-Linked/HUD/Inbox.org")
+(setq rc-file "~/1-Agenda/4-Time/2-Not-me/0-Resilient Coders/journal.org")
+
+(setq org-capture-templates
+      (quote
+       (("t" "Task" entry (file org-inbox-file) (file "~/.emacs.d/etc/templates/new-task.org") :clock-in t :clock-resume t)
+        ("p" "Project" entry (file org-inbox-file) (file "~/.emacs.d/etc/templates/new-project.org") :clock-in t :clock-resume t)
+        ("m" "Meeting" entry (file org-inbox-file) "* %^{Meeting} :MEETING: \n\n%^{When?}t\n" :clock-in t :clock-resume t)
+
+        ("n" "Note" entry (function org-journal-find-location) "* %^{Note} :NOTE: \n %U \n\n %?" :clock-in t :clock-resume t)
+        ("l" "Link" entry (function org-journal-find-location) "* %(org-cliplink-capture) \n %U \n\n %?" :immediate-finish t)
+
+        ("j" "Journal")
+        ("jp" "Personal" entry (function org-journal-find-location) "** %^{Title} \n\n %?" :jump-to-captured t :clock-in t :clock-resume t)
+        ("jj" "Resilient" entry (file+function rc-file org-reverse-datetree-goto-date-in-file) "* %^{Title} :resilient: \n\n %?" :clock-in t :clock-resume t)
+
+
+        ("r" "Routines")
+        ("rm" "Morning" entry (function org-journal-find-location) (file "~/.emacs.d/etc/templates/morning-routine.org") :clock-in t :clock-resume t)
+        ("rn" "Night" entry (function org-journal-find-location) (file "~/.emacs.d/etc/templates/night-routine.org") :clock-in t :clock-resume t))))
