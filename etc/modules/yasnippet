@@ -1,3 +1,8 @@
 #!/usr/bin/emacs --script
 
-(use-package yasnippet :straight t :defer t)
+(use-package yasnippet
+  :straight t
+  :defer t
+  :commands (yas-new-snippet
+             yas-insert-snippet)
+  )

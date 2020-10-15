@@ -1,0 +1,6 @@
+#!/usr/bin/emacs --script
+
+
+(use-package epresent
+  :straight t
+  :defer t)

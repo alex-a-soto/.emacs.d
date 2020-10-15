@@ -2,6 +2,9 @@
 
 (use-package org-journal
   :straight t
+  :defer 1
+  :commands (org-journal-new-entry
+             org-journal-find-location)
   :config
   (require 'org-journal)
 

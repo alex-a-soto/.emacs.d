@@ -32,6 +32,7 @@
 
 (use-package mixed-pitch
   :straight t
+  :defer t
   :hook (writeroom-mode . +zen-enable-mixed-pitch-mode-h)
   :config
   (defun +zen-enable-mixed-pitch-mode-h ()

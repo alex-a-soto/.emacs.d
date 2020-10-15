@@ -1,7 +1,12 @@
 #!/usr/bin/emacs --script
 
-
-
 (use-package org-download
   :straight t
-  :defer t)
+  :defer t
+  :commands (org-download-yank
+             org-download-image
+             org-download-clipboard
+             org-download-screenshot
+             org-download-delete)
+
+  )

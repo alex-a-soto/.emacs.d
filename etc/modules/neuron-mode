@@ -1,0 +1,56 @@
+#!/usr/bin/emacs --script
+(use-package neuron-mode
+  :straight t
+  :defer 2
+  :config
+;;; tools/neuron/config.el -*- lexical-binding: t; -*-
+(defun assoc-delete-all (key alist &optional test)
+  "Delete from ALIST all elements whose car is KEY.
+Compare keys with TEST.  Defaults to `equal'.
+Return the modified alist.
+Elements of ALIST that are not conses are ignored."
+  (unless test (setq test #'equal))
+  (while (and (consp (car alist))
+	      (funcall test (caar alist) key))
+    (setq alist (cdr alist)))
+  (let ((tail alist) tail-cdr)
+    (while (setq tail-cdr (cdr tail))
+      (if (and (consp (car tail-cdr))
+	       (funcall test (caar tail-cdr) key))
+	  (setcdr tail (cdr tail-cdr))
+	(setq tail tail-cdr))))
+  alist)
+
+
+(setq neuron-default-zettelkasten-directory (expand-file-name "~/2-Linked/7-Names/2-Flat/zettelkasten/"))
+
+(defun search-zettelkasten ()
+  "Search zettels by content."
+  (interactive)
+  (progn
+    (+ivy-file-search :in neuron-zettelkasten :recursive nil :prompt "Search Zettelkasten: ")
+    (neuron-mode)))
+
+  (defun neuron-timeline-post ()
+  "Create or open today's daily notes."
+  (interactive)
+  (neuron-check-if-zettelkasten-exists)
+  (let* ((today (current-time))
+         (zid (format-time-string neuron-daily-note-id-format today))
+         (title   (read-string "Title: "))
+         (exists (alist-get 'path (neuron--query-zettel-from-id zid)))
+         (path (or exists (neuron--run-command
+                           (neuron--make-command "new" "--id-hash" title))))
+         (buffer (and path (find-file-noselect path))))
+    (when buffer
+      (neuron--rebuild-cache)
+      (pop-to-buffer-same-window buffer)
+      (neuron-mode)
+      (unless exists
+        (dolist (tag neuron-timeline-tag)
+          (neuron-add-tag tag))))))
+
+  (setq neuron-timeline-tag '("timeline"))
+
+
+  )

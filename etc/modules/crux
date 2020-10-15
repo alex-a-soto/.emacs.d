@@ -1,0 +1,4 @@
+;;; crux
+(use-package crux
+  :straight t
+  :defer 1)

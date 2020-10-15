@@ -2,8 +2,8 @@
 
 (use-package deadgrep
   :straight t
-  :defer t
-  :config
+  :defer 2
+  :init
   (defun dg-current-directory (search-term directory)
   "Start a ripgrep search for SEARCH-TERM from DIRECTORY.
 If called with a prefix argument, create the results buffer but

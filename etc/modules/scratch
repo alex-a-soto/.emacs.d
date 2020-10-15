@@ -1,2 +1,2 @@
 #!/usr/bin/emacs --script
-(use-package scratch :straight t :defer t)
+(use-package scratch :straight t :defer t :commands (scratch))

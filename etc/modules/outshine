@@ -4,5 +4,5 @@
   :diminish outshine-mode
   :straight t
   :defer t
-  :config
+  :init
   (add-hook 'prog-mode-hook 'outshine-mode))

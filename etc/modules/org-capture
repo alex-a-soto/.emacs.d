@@ -1,7 +1,7 @@
 #!/usr/bin/emacs --script
 
 (setq org-inbox-file "~/2-Linked/HUD/Inbox.org")
-(setq rc-file "~/1-Agenda/4-Time/2-Not-me/0-Resilient Coders/journal.org")
+(setq rc-journal "~/1-Agenda/4-Time/2-Not-me/0-Resilient Coders/journal.org")
 
 (setq org-capture-templates
       (quote
@@ -14,7 +14,7 @@
 
         ("j" "Journal")
         ("jp" "Personal" entry (function org-journal-find-location) "** %^{Title} \n\n %?" :jump-to-captured t :clock-in t :clock-resume t)
-        ("jj" "Resilient" entry (file+function rc-file org-reverse-datetree-goto-date-in-file) "* %^{Title} :resilient: \n\n %?" :clock-in t :clock-resume t)
+        ("jj" "Resilient" entry (file+function rc-journal org-reverse-datetree-goto-date-in-file) "* %^{Title} :resilient: \n\n %?" :clock-in t :clock-resume t)
 
 
         ("r" "Routines")

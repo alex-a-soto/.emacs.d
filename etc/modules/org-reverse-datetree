@@ -1,0 +1,7 @@
+#!/usr/bin/emacs --script
+
+(use-package org-reverse-datetree
+  :straight t
+  :defer t
+  :commands (org-reverse-datetree-goto-date-in-file)
+)

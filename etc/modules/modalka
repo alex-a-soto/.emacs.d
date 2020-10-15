@@ -2,8 +2,8 @@
 
 ;;;; modalka
 (use-package modalka
-    :straight t
-    :config
+  :straight t
+  :config
     (modalka-global-mode 1)
 
     (defun normal-mode-modalka ()

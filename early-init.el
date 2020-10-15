@@ -132,7 +132,7 @@
 
 (save-place-mode 1)
 
-  (global-set-key (kbd "M-/") 'hippie-expand)
+ (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 
 
