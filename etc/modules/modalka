@@ -58,7 +58,7 @@
 
       "<tab>" '+workspace/other
       "<backtab>" 'crux-switch-to-previous-buffer
-      "<return>" 'hkey-either
+      "<return>" 'action-key
       "SPC" 'gbut:act
       "<backspace>" 'hhist:remove
 

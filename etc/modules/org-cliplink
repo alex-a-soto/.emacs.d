@@ -3,6 +3,5 @@
 
 (use-package org-cliplink
   :straight t
-  :defer t
   :commands (org-cliplink)
   )

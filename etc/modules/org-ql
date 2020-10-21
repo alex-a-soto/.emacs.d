@@ -1,0 +1,6 @@
+#!/usr/bin/emacs --script
+
+(use-package org-ql
+  :straight t
+  :defer 2
+  )

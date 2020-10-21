@@ -1,6 +1,6 @@
 #!/usr/bin/emacs --script
 
-(setq org-inbox-file "~/2-Linked/HUD/Inbox.org")
+(setq org-inbox-file "~/1-Agenda/Inbox.org")
 (setq rc-journal "~/1-Agenda/4-Time/2-Not-me/0-Resilient Coders/journal.org")
 
 (setq org-capture-templates

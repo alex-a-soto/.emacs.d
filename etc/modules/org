@@ -1,3 +1,3 @@
 #!/usr/bin/emacs --script
 
-(modular-config-load-modules '(org-journal org-capture org-cliplink org-download org-reverse-datetree))
+(modular-config-load-modules '(org-capture org-journal org-cliplink org-download org-reverse-datetree))

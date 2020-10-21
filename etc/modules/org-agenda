@@ -9,3 +9,8 @@
                                    (directory-files-recursively
                                     directory org-agenda-file-regexp))
                                  '("~/1-Agenda")))))
+
+
+(setq org-todo-keywords
+      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))

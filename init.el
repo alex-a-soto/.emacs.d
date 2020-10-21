@@ -4,10 +4,9 @@
   :config
   (setq modular-config-list '(
                          (none ())
-                         (minimal (core))
                          (news (core))
                          (prog (core))
-                         (agenda (core org-agenda))
+                         (agenda (core org-agenda org-ql treefactor))
                          (main (core))
                          ))
   (setq modular-config-default 'main)
