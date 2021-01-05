@@ -1,22 +1,66 @@
 #!/usr/bin/emacs --script
 
-(setq org-inbox-file "~/1-Agenda/Inbox.org")
-(setq rc-journal "~/1-Agenda/4-Time/2-Not-me/0-Resilient Coders/journal.org")
+(setq org-now-file "~/HUD/daylog.org")
+
+(setq org-refile-targets '(("~/HUD/process.org" :maxlevel . 1)))
+
+(defun my/org-read-datetree-date (d)
+  "Parse a time string D and return a date to pass to the datetree functions."
+  (let ((dtmp (nthcdr 3 (parse-time-string d))))
+    (list (cadr dtmp) (car dtmp) (caddr dtmp))))
+
+
+(defun my/org-refile-to-datetree (&optional bfn)
+  "Refile an entry to a datetree under an archive."
+  (interactive)
+  (require 'org-datetree)
+  (let* ((bfn (or bfn (find-file-noselect (expand-file-name "~/1-Personal/2-Linked/4-Time/1-Me/Journal/1-Source/Inbox.org"))))
+         (datetree-date (my/org-read-datetree-date (org-read-date t nil))))
+    (org-refile nil nil (list nil (buffer-file-name bfn) nil
+                              (with-current-buffer bfn
+                                (save-excursion
+                                  (org-datetree-find-month-create datetree-date)
+                                  (point))))))
+  (setq this-command 'my/org-refile-to-journal))
+
+(defun my/refile (file headline)
+  (let ((pos (save-excursion
+               (find-file file)
+               (org-find-exact-headline-in-buffer headline)))
+        (org-refile-keep t))
+    (org-refile nil nil (list headline file nil pos) "Copy"))
+  (switch-to-buffer (current-buffer)))
+
+(defun my/find-create-date-entry ()
+  "Append to end of or create Org entry with date heading."
+  (let ((heading (concat "* " (format-time-string "%Y-%m-%d %A"))))
+    (save-match-data
+      (goto-char (point-min))
+      (unless (re-search-forward heading nil 'no-error)
+        (end-of-line)
+        (newline)
+        (insert heading))
+      (org-end-of-subtree))))
 
 (setq org-capture-templates
       (quote
-       (("t" "Task" entry (file org-inbox-file) (file "~/.emacs.d/etc/templates/new-task.org") :clock-in t :clock-resume t)
-        ("p" "Project" entry (file org-inbox-file) (file "~/.emacs.d/etc/templates/new-project.org") :clock-in t :clock-resume t)
-        ("m" "Meeting" entry (file org-inbox-file) "* %^{Meeting} :MEETING: \n\n%^{When?}t\n" :clock-in t :clock-resume t)
-
-        ("n" "Note" entry (function org-journal-find-location) "* %^{Note} :NOTE: \n %U \n\n %?" :clock-in t :clock-resume t)
-        ("l" "Link" entry (function org-journal-find-location) "* %(org-cliplink-capture) \n %U \n\n %?" :immediate-finish t)
-
-        ("j" "Journal")
-        ("jp" "Personal" entry (function org-journal-find-location) "** %^{Title} \n\n %?" :jump-to-captured t :clock-in t :clock-resume t)
-        ("jj" "Resilient" entry (file+function rc-journal org-reverse-datetree-goto-date-in-file) "* %^{Title} :resilient: \n\n %?" :clock-in t :clock-resume t)
-
+       (("t" "Task" plain (file+function org-now-file my/find-create-date-entry) "** TODO %^{Capture}\n %^{Description}\n%U" :immediate-finish t)
+        ("e" "Event" plain (file+function org-now-file my/find-create-date-entry) "** %^{Event}\n %?\n\n%^{When?}t\n")
+        ("n" "Note" plain (file+function org-now-file my/find-create-date-entry) "** %^{Note}\n %^{Description}\n%U" :immediate-finish t)
+        ("l" "Link" plain (file+function org-now-file my/find-create-date-entry) "** %(org-cliplink-capture) \n %U \n\n %?" :immediate-finish t)
+        ("j" "Journal" plain (file+function org-now-file my/find-create-date-entry) "** %^{Capture}\n %?\n%U")
 
         ("r" "Routines")
-        ("rm" "Morning" entry (function org-journal-find-location) (file "~/.emacs.d/etc/templates/morning-routine.org") :clock-in t :clock-resume t)
-        ("rn" "Night" entry (function org-journal-find-location) (file "~/.emacs.d/etc/templates/night-routine.org") :clock-in t :clock-resume t))))
+        ("rm" "Morning" plain (file+function org-now-file my/find-create-date-entry) (file "~/.emacs.d/etc/templates/morning-routine.org"))
+        ("re" "Evening" plain (file+function org-now-file my/find-create-date-entry) (file "~/.emacs.d/etc/templates/evening-routine.org"))
+        ("rn" "Night" plain (file+function org-now-file my/find-create-date-entry) (file "~/.emacs.d/etc/templates/night-routine.org"))
+        )))
+
+(defun as/dup-process-daylog ()
+  (interactive)
+  (find-file "~/HUD/daylog.org")
+  (goto-char (point-min))
+  (outline-next-heading)
+  (my/refile "~/HUD/process.org" "Process")
+  (my/org-refile-to-datetree)
+  )

@@ -1,6 +1,8 @@
-* Evening Routine
-:PROPERTIES:
-:SORT:     TYPE
-:END:
-
+** Evening Routine
 %(org-insert-time-stamp nil t nil nil nil nil)
+
+- [ ] Review, reflect, close open loops
+    - [ ] Email, calendar, slack
+    - [ ] Review, process and refile items from daylog
+    - [ ] Identify Most Important Tasks for following day
+- [ ] Do something unrelated to work

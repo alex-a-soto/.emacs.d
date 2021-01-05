@@ -1,11 +1,15 @@
-* Morning Routine [0/8]
-- [ ] Brush teeth
-- [ ] Drink water
-- [ ] Take multivitamin
-- [ ] Make bed
-- [ ] Meditate
-- [ ] Journal
-- [ ] Go for a walk
-- [ ] Shower
-- [ ] Breakfast
-- [ ] Get dressed
+** Morning Routine [0/12]
+1. [ ] Brush teeth
+2. [ ] Drink water
+3. [ ] Take supplements
+4. [ ] Make bed
+5. [ ] Meditate
+6. [ ] Make tea
+7. [ ] Journal
+8. [ ] Shower
+9. [ ] Get dressed
+10. [ ] Review, reflect, close open loops
+    1. [ ] Calendar, email, slack, signal, whatsapp.
+    2. [ ] Review tasks and projects for the day.
+11. [ ] Words of affirmation: loved ones, family and friends
+12. [ ] Breakfast

@@ -1,0 +1,4 @@
+#!/usr/bin/emacs --script
+
+(use-package dired
+  :hook (dired-mode . dired-hide-details-mode))

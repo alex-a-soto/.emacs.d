@@ -1,3 +1,5 @@
 #!/usr/bin/emacs --script
 
 (modular-config-load-modules '(no-littering ui editor completion org))
+
+(find-file "~/HUD/dashboard.org")

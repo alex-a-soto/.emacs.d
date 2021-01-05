@@ -15,7 +15,7 @@
   ;; will add the new entry as a child entry.
   (goto-char (point-min)))
 
-  (setq org-journal-dir "~/2-Linked/HUD/")
+;  (setq org-journal-dir "~/1-Agenda/HUD/")
   (setq org-journal-time-prefix "** ")
   (setq org-journal-time-format "")
   (setq org-journal-file-format "%Y-%m-%d.org")

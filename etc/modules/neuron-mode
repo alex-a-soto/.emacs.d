@@ -22,7 +22,7 @@ Elements of ALIST that are not conses are ignored."
   alist)
 
 
-(setq neuron-default-zettelkasten-directory (expand-file-name "~/2-Linked/7-Names/2-Flat/zettelkasten/"))
+(setq neuron-default-zettelkasten-directory (expand-file-name "~/1-Personal/2-Linked/7-Names/2-Flat/zettelkasten/"))
 
 (defun search-zettelkasten ()
   "Search zettels by content."

@@ -4,9 +4,9 @@
   :config
   (setq modular-config-list '(
                          (none ())
-                         (news (core))
+                         (news (core elfeed org-capture))
                          (prog (core))
-                         (agenda (core org-agenda org-ql treefactor))
+                         (agenda (core org-ql treefactor org-agenda))
                          (main (core))
                          ))
   (setq modular-config-default 'main)

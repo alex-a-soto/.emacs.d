@@ -1,0 +1,65 @@
+#!/usr/bin/emacs --script
+
+(use-package elfeed
+  :straight t
+  :commands elfeed
+  :init
+  (setq elfeed-db-directory (concat no-littering-var-directory "elfeed/db/")
+        elfeed-enclosure-default-dir (concat no-littering-var-directory "elfeed/enclosures/"))
+  :config
+  (setq elfeed-search-filter "@4-hours-ago +unread"
+        elfeed-show-entry-switch #'pop-to-buffer
+        elfeed-show-entry-delete #'+rss/delete-pane
+        shr-max-image-proportion 0.8)
+   (setq-default elfeed-search-title-max-width 100)
+   (setq-default elfeed-search-title-min-width 100)
+
+
+
+  (make-directory elfeed-db-directory t)
+
+  (defun as/elfeed-load-db-and-open ()
+  "Wrapper to load the elfeed db from disk before opening"
+  (interactive)
+  (elfeed-db-load)
+  (elfeed)
+  (elfeed-update)
+  (setq elfeed-search-filter "@1-hours-ago +unread")
+  (elfeed-search-update--force))
+
+;;write to disk when quiting
+(defun as/elfeed-save-db-and-bury ()
+  "Wrapper to save the elfeed db to disk before burying buffer"
+  (interactive)
+  (elfeed-db-save)
+  (quit-window))
+
+(define-key elfeed-search-mode-map "q" 'as/elfeed-save-db-and-bury)
+(define-key elfeed-search-mode-map "h"
+  (lambda ()
+    (interactive)
+    (elfeed-search-set-filter (default-value 'elfeed-search-filter))))
+
+(define-key elfeed-search-mode-map (kbd "j") #'next-line)
+(define-key elfeed-search-mode-map (kbd "k") #'previous-line)
+
+(defun as/elfeed-yank-capture ()
+  (interactive)
+  (elfeed-search-yank)
+  (org-capture nil "l")
+  (message "Entry saved to Inbox"))
+
+(define-key elfeed-search-mode-map "y" #'as/elfeed-yank-capture))
+
+
+(use-package elfeed-org
+  :straight t
+  :after elfeed
+  :preface
+  (setq rmh-elfeed-org-files (list "~/1-Personal/2-Linked/2-Codex/Static-path/rss.org"))
+  :config
+  (and (let ((default-directory org-directory))
+         (setq rmh-elfeed-org-files
+               (cl-remove-if-not
+                #'file-exists-p (mapcar #'expand-file-name rmh-elfeed-org-files))))
+       (elfeed-org)))

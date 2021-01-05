@@ -1,0 +1,8 @@
+#!/usr/bin/emacs --script
+
+
+(use-package org-pomodoro
+  :straight t
+  :config
+  (setq org-pomodoro-audio-player (or (executable-find "paplay")
+                                      org-pomodoro-audio-player)))

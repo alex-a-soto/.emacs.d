@@ -1,10 +1,9 @@
-* Night Routine [0/3]
+** Bedtime Routine [0/6]
 %(org-insert-time-stamp nil t nil nil nil nil)
 
 - [ ] Wind down 1 hour before bedtime
+- [ ] Make tea
 - [ ] Tidy up workspace for tomorrow
-- [ ] Review, reflect, close open loops
-    - [ ] Email, calendar, slack
-    - [ ] Identify Most Important Tasks for following day
-- [ ] Brush teeth etc
-- [ ] Read / relax
+- [ ] Brush teeth
+- [ ] Take medication
+- [ ] Take melatonin
