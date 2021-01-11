@@ -4,10 +4,11 @@
   :config
   (setq modular-config-list '(
                          (none ())
-                         (news (core elfeed org-capture))
-                         (prog (core))
+                         (news (core elfeed org-capture news))
+                         (prog (core outshine))
                          (agenda (core org-ql treefactor org-agenda))
-                         (main (core))
+                         (blog (core neuron-mode))
+                         (main (core main))
                          ))
   (setq modular-config-default 'main)
   (setq modular-config-path "~/.emacs.d/etc/modules")

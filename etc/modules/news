@@ -1,0 +1,4 @@
+#!/usr/bin/emacs --script
+
+(elfeed)
+(elfeed-update)

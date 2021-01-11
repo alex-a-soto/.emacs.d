@@ -1,6 +1,11 @@
 #!/usr/bin/emacs --script
 
-(modular-config-load-modules '(diminish modeline window-select zen which-key hydra))
+(modular-config-load-modules '(diminish
+                               modeline
+                               window-select
+                               zen
+                               which-key
+                               hydra))
 
 (defun zoom-frame (&optional n frame amt)
   "Increase the default size of text by AMT inside FRAME N times.

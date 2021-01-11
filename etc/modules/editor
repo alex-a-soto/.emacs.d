@@ -1,3 +1,15 @@
 #!/usr/bin/emacs --script
 
-(modular-config-load-modules '(async outshine scratch general modalka yasnippet hyperbole epresent bookmark-plus crux neuron-mode openwith treefactor dired))
+(modular-config-load-modules '(async
+                               scratch
+                               general
+                               modalka
+                               yasnippet
+                               hyperbole
+                               epresent
+                               bookmark-plus
+                               crux
+                               openwith
+                               treefactor
+                               dired
+                               pdf-tools))

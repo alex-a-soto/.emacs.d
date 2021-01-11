@@ -39,3 +39,5 @@
     "Enable `mixed-pitch-mode' when in `+zen-mixed-pitch-modes'."
     (when (apply #'derived-mode-p +zen-mixed-pitch-modes)
       (mixed-pitch-mode (if writeroom-mode +1 -1)))))
+
+(global-visual-line-mode +1)

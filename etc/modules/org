@@ -1,6 +1,6 @@
 #!/usr/bin/emacs --script
 
-(modular-config-load-modules '(org-capture org-cliplink org-download anki-editor pdf-tools pomodoro org-ql org-agenda))
+(modular-config-load-modules '(org-capture org-cliplink org-download pomodoro))
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")

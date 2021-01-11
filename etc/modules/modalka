@@ -56,18 +56,18 @@
 
     (general-def modalka-mode-map
 
-      "<tab>" '+workspace/other
-      "<backtab>" 'crux-switch-to-previous-buffer
+      "<tab>" 'switch-to-buffer
+      "<backtab>" 'ignore
       "<return>" 'action-key
       "SPC" 'gbut:act
-      "<backspace>" 'hhist:remove
+      "<backspace>" 'crux-switch-to-previous-buffer
 
       "a"  'ignore
-      "b"  '+ivy/switch-workspace-buffer
+      "b"  'ignore
       "c"  'org-capture
       "d"  'dired-jump
       "e"  'ignore
-      "f"  'avy-goto-char ;'counsel-find-file
+      "f"  'avy-goto-char
       "g"  'ignore
       "h"  'bury-buffer
       "i"  #'insert-mode-modalka
@@ -77,25 +77,25 @@
       "m"  'ignore
       "n"  'org-tree-to-indirect-buffer
       "o"  'other-window
-      "p"  'as/treefactor-hydra
-      "q"  'org-working-set
-      "r"  'counsel-recentf
+      "p"  'ignore
+      "q"  'ignore
+      "r"  'ignore
       "s"  'swiper
-      "t"  '+treemacs/toggle
+      "t"  'ignore
       "u"  'ignore
       "v"  'point-to-register
-      "w"  '+workspace/switch-to
-      "x"  'counsel-M-x
+      "w"  'ignore
+      "x"  'execute-extended-command
       "y"  'ignore
       "z"  'ignore
 
 
       "A"  'ignore
-      "B"  'counsel-switch-buffer
+      "B"  'ignore
       "C"  'ignore
       "D"  'ignore
       "E"  'ignore
-      "F"  'counsel-find-file
+      "F"  'find-file
       "G"  'ignore
       "H"  'unbury-buffer
       "I"  'ignore
@@ -106,7 +106,7 @@
       "N"  'ignore
       "O"  'ignore
       "P"  'ignore
-      "Q"  'as/working-set
+      "Q"  'ignore
       "R"  'ignore
       "S"  'ignore
       "T"  'ignore
