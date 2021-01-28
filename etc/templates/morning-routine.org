@@ -3,13 +3,18 @@
 2. [ ] Drink water
 3. [ ] Take supplements
 4. [ ] Make bed
-5. [ ] Meditate
-6. [ ] Make tea
-7. [ ] Journal
-8. [ ] Shower
-9. [ ] Get dressed
-10. [ ] Review, reflect, close open loops
-    1. [ ] Calendar, email, slack, signal, whatsapp.
-    2. [ ] Review tasks and projects for the day.
-11. [ ] Words of affirmation: loved ones, family and friends
-12. [ ] Breakfast
+5. [ ] Meditate - https://my.headspace.com/
+6. [ ] Shower
+7. [ ] Get dressed
+8. [ ] Make tea
+9. [ ] Review, reflect, close open loops
+   1. [ ] Work Calendar - https://calendar.google.com/calendar/u/0/r
+   2. [ ] Personal Calendar - https://calendar.google.com/calendar/u/1/r
+   3. [ ] Work Email - https://mail.google.com/mail/u/0/#inbox
+   4. [ ] Personal Email - https://mail.google.com/mail/u/1/#inbox
+   5. [ ] Slack - https://app.slack.com/client/T03SUKX53/unreads
+   6. [ ] Online Messengers
+10. [ ] Review tasks and projects for the day.
+11. [ ] Journal
+12. [ ] Words of affirmation: loved ones, family and friends
+13. [ ] Breakfast

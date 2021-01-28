@@ -1,3 +1,5 @@
+#!/usr/bin/emacs --script
+
 ;;; bookmark-plus
 (use-package bookmark+
   :straight (bookmark-plus :type git :host github :repo "emacsmirror/bookmark-plus")

@@ -1,32 +1,12 @@
 #!/usr/bin/emacs --script
 
-(modular-config-load-modules '(diminish
+(modular-config-load-modules '(theme
+                               diminish
                                modeline
                                window-select
                                zen
                                which-key
-                               hydra))
-
-(defun zoom-frame (&optional n frame amt)
-  "Increase the default size of text by AMT inside FRAME N times.
-  N can be given as a prefix arg.
-  AMT will default to 10.
-  FRAME will default the selected frame."
-  (interactive "p")
-  (let ((frame (or frame (selected-frame)))
-        (height (+ (face-attribute 'default :height frame) (* n (or amt 10)))))
-    (set-face-attribute 'default frame :height height)
-    (when (called-interactively-p)
-      (message "Set frame's default text height to %d." height))))
-
-(defun zoom-frame-out (&optional n frame amt)
-  "Call `zoom-frame' with -N."
-  (interactive "p")
-  (zoom-frame (- n) frame amt))
+                               hydra
+                               zoom-frame))
 
 (setq blink-cursor-mode nil)
-
-
-;;; Load tango-dark as the default theme if one is not loaded already
-(if (not custom-enabled-themes)
-    (load-theme 'whiteboard t))

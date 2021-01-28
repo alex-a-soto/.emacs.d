@@ -2,16 +2,16 @@
 
 ;;; Hyperbole
 (use-package hyperbole
-  :straight t
+  :straight (hyperbole :type git :host github :repo "rswgnu/hyperbole")
   :commands (gbut:act
              hkey-either
              action-key)
   :init
  ; (add-hook 'hyperbole-init-hook 'hmouse-add-unshifted-smart-keys)
-  (setq hbmap:dir-user (concat "~/.doom.d/hyperb/"))
-  (setq hbmap:dir-filename (concat "~/.doom.d/hyperb/HBMAP"))
+  (setq hbmap:dir-user (concat "~/.emacs.d/etc/hyperb/"))
+  (setq hbmap:dir-filename (concat "~/.emacs.d/etc/hyperb/HBMAP"))
   (setq hattr:filename "hypb")
-  (setq gbut:file (concat "~/.doom.d/hyperb/HYPB"))
+  (setq gbut:file (concat "~/.emacs.d/etc/hyperb/HYPB"))
 
   :config
   (setq browse-url-firefox-program "firefox")
@@ -20,10 +20,6 @@
 
   (add-to-list 'hyperbole-web-search-alist '("DuckDuckGo" . "https://duckduckgo.com/?q=%s"))
   (define-key org-mode-map (kbd "<M-return>") nil)
-
-(defun as/find-overview ()
-  (interactive)
-  (find-file "~/.doom.d/hyperb/pim/agenda.org"))
 
 
 ;; To add Org files directly to HyRolo so they're searchable, customize this

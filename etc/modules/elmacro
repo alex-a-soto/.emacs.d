@@ -1,0 +1,7 @@
+#!/usr/bin/emacs --script
+
+(use-package elmacro
+:straight t
+:config
+(elmacro-mode)
+)

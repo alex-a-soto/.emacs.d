@@ -1,4 +1,23 @@
 #!/usr/bin/emacs --script
 
 (use-package dired
-  :hook (dired-mode . dired-hide-details-mode))
+  :hook (dired-mode . dired-hide-details-mode)
+  :hook (dired-mode . dired-hide-dotfiles-mode)
+  :hook (dired-mode . dired-lsi-mode)
+  )
+
+(use-package dired-hacks-utils
+  :straight t)
+
+(use-package dired-hide-dotfiles
+  :straight t)
+
+(use-package dired-subtree
+  :straight t
+  :config
+  (bind-keys :map dired-mode-map
+             ("i" . dired-subtree-insert)
+             (";" . dired-subtree-remove)))
+
+(use-package dired-lsi
+  :straight t)

@@ -4,6 +4,7 @@
   :straight t
   :defer 2
   :init
+
   (defun dg-current-directory (search-term directory)
   "Start a ripgrep search for SEARCH-TERM from DIRECTORY.
 If called with a prefix argument, create the results buffer but
@@ -26,4 +27,15 @@ don't actually start the search."
                               (funcall deadgrep-project-root-function))))
   (let ( (deadgrep-project-root-function (list 'lambda '() directory)) )
     (deadgrep search-term)
-    )))
+    ))
+
+(defun as/dired-deadgrep ()
+  (interactive)
+  (let* ((title (read-from-minibuffer "Search term: ")))
+    (dg-current-directory title (concat dired-directory (thing-at-point 'filename)))))
+
+(define-key dired-mode-map (kbd "s") 'as/dired-deadgrep)
+
+
+
+)

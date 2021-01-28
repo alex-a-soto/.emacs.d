@@ -1,11 +1,10 @@
-#!/usr/bin/emacs --script
+ #!/usr/bin/emacs --script
 
 ;;;; modalka
 (use-package modalka
   :straight t
   :config
     (modalka-global-mode 1)
-
     (defun normal-mode-modalka ()
 	    (interactive)
 	    (if (modalka-mode nil)
@@ -49,6 +48,7 @@
 	       emms-playlist-mode
 	       pdf-tools-modes
 	       undo-tree-visualizer-mode
+               minibuffer-inactive-mode
 	       ))))
 
     (define-key modalka-mode-map [remap self-insert-command] 'ignore)
@@ -62,11 +62,11 @@
       "SPC" 'gbut:act
       "<backspace>" 'crux-switch-to-previous-buffer
 
-      "a"  'ignore
+      "a"  'as/working-set-add
       "b"  'ignore
       "c"  'org-capture
       "d"  'dired-jump
-      "e"  'ignore
+      "e"  'edit-indirect-region
       "f"  'avy-goto-char
       "g"  'ignore
       "h"  'bury-buffer
@@ -78,10 +78,10 @@
       "n"  'org-tree-to-indirect-buffer
       "o"  'other-window
       "p"  'ignore
-      "q"  'ignore
-      "r"  'ignore
+      "q"  'org-working-set--circle-switch-to-menu
+      "r"  'treefactor-throw
       "s"  'swiper
-      "t"  'ignore
+      "t"  'as/refile-hydra/body
       "u"  'ignore
       "v"  'point-to-register
       "w"  'ignore
@@ -106,7 +106,7 @@
       "N"  'ignore
       "O"  'ignore
       "P"  'ignore
-      "Q"  'ignore
+      "Q"  'as/working-set
       "R"  'ignore
       "S"  'ignore
       "T"  'ignore

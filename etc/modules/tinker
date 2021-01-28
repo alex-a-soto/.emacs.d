@@ -1,0 +1,16 @@
+#!/usr/bin/emacs --script
+
+(defun as/add-to-inbox ()
+  (interactive)
+  (dired-mark nil)
+  (dired-copy-filename-as-kill '(4))
+  (other-window 1 nil)
+  (goto-char (point-max))
+  (newline-and-indent)
+  (end-of-line)
+  (call-interactively 'org-insert-heading-respect-content nil)
+  (yank)
+  (org-id-get-create)
+  (other-window 1 nil)
+  (call-interactively 'org-attach-dired-to-subtree)
+  )

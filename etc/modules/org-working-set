@@ -1,0 +1,59 @@
+#!/usr/bin/emacs --script
+
+(use-package org-working-set
+  :straight t
+  :config
+  (defun as/working-set ()
+    (interactive)
+    (save-excursion
+      (search-forward-regexp thing-at-point-uuid-regexp)
+      (backward-char 1)
+      (let ((as (thing-at-point 'uuid t)))
+        (setq org-working-set-id as)))
+    (org-working-set)
+    )
+
+  (defun as/working-set-add-agenda ()
+    (interactive)
+    (org-agenda-goto)
+    (org-working-set--add)
+    (ace-window 1)
+    (delete-other-windows)
+    (message "Node added to working-set"))
+
+  (defun as/working-set-add ()
+    (interactive)
+    (org-working-set--add)
+    (message "Node added to working-set"))
+
+  (defun as/working-set-clock-in ()
+    (interactive)
+    (save-window-excursion
+      (org-working-set-menu-go--this-win)
+      (message "Clocked in")))
+
+(defvar org-working-set-menu-keymap
+    (let ((keymap (make-sparse-keymap)))
+      (set-keymap-parent keymap org-mode-map)
+      (org-working-set--define-keymap
+       keymap
+       '((("RET" "SPC") . org-working-set-menu-go--this-win)
+         (("TAB" "<tab>") . org-working-set-menu-go--other-win)
+         (("p") . org-working-set--menu-peek)
+         (("d") . org-working-set--menu-delete-entry)
+         (("t") . org-working-set--menu-todo)
+         (("u") . org-working-set--menu-undo)
+         (("q") . org-working-set--menu-quit)
+         (("c") . org-working-set--menu-toggle-clock-in)
+         (("i") . as/working-set-clock-in)
+         (("o") . org-clock-out)
+         (("l") . org-working-set--menu-toggle-land-at-end)
+         (("?") . org-working-set--menu-toggle-help)
+         (("r") . org-working-set--menu-rebuild))))
+    "Keymap used in working set menu.")
+
+  (add-hook 'org-agenda-mode-hook
+            '(lambda () (org-defkey org-agenda-mode-map "a" 'as/working-set-add-agenda))
+            'append)
+
+  )

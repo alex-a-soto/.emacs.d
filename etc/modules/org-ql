@@ -2,5 +2,15 @@
 
 (use-package org-ql
   :straight t
-  :defer 2
-  )
+  :config
+(defun as/view-agenda()
+  (interactive)
+(org-ql-search org-agenda-files "todo:" :super-groups '((:auto-dir-name))))
+
+;(setq personal-linked-files (mapc #'find-file (directory-files-recursively "~/1-Personal/2-Linked/"  "\\.org$" nil)))
+
+;(org-ql-search personal-linked-files "" :super-groups '((:auto-dir-name)))
+
+
+
+)

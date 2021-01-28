@@ -1,0 +1,6 @@
+#!/usr/bin/emacs --script
+
+(use-package leuven-theme
+  :straight t)
+
+(load-theme 'leuven t)

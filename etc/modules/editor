@@ -1,15 +1,26 @@
 #!/usr/bin/emacs --script
 
 (modular-config-load-modules '(async
+                               dired
                                scratch
                                general
                                modalka
                                yasnippet
                                hyperbole
-                               epresent
                                bookmark-plus
                                crux
                                openwith
                                treefactor
-                               dired
-                               pdf-tools))
+                               projectile
+                               anki-editor
+                               pdf-tools
+                               super-save
+                               edit-indirect))
+
+(setq delete-by-moving-to-trash t)
+
+(defun as/switch-to-previous-buffer ()
+  "Switch to previously open buffer.
+Repeated invocations toggle between the two most recently open buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))

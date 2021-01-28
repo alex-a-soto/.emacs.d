@@ -4,4 +4,6 @@
                                ui
                                editor
                                completion
-                               org))
+                               org
+                               tools
+                               tinker))

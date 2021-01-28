@@ -1,10 +1,37 @@
 #!/usr/bin/emacs --script
+(require 'org-habit)
 
-(modular-config-load-modules '(org-capture org-cliplink org-download pomodoro))
+(modular-config-load-modules '(org-capture org-cliplink org-download pomodoro org-working-set org-agenda org-ql org-clock))
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
               (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+
+(setq org-todo-keyword-faces
+      (quote (("TODO" :foreground "red" :weight bold)
+              ("NEXT" :foreground "#007cee" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
+              ("WAITING" :foreground "orange" :weight bold)
+              ("HOLD" :foreground "magenta" :weight bold)
+              ("CANCELLED" :foreground "red" :weight bold)
+
+              (quote (("[-]"  . +org-todo-active)
+                      ("STRT" . +org-todo-active)
+                      ("[?]"  . +org-todo-onhold)
+                      ("WAIT" . +org-todo-onhold))))))
+
+(setq org-todo-state-tags-triggers
+      (quote (("CANCELLED" ("CANCELLED" . t))
+              ("WAITING" ("WAITING" . t))
+              ("HOLD" ("WAITING") ("HOLD" . t))
+              (done ("WAITING") ("HOLD"))
+              ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
+              ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
+              ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))))
+
+(setq org-lowest-priority 68)
+
+(setq org-ellipsis "⤵")
 
 (defun as/org-save-and-export-pdf ()
   (if (eq major-mode 'org-mode)
@@ -19,3 +46,52 @@
 
 (setq org-attach-id-dir "~/3-Non/2-Codex/Static-path/")
 (setq org-attach-method 'mv)
+
+(setq org-use-speed-commands t)
+
+(setq org-fast-tag-selection-single-key (quote expert))
+
+(setq org-hide-leading-stars nil)
+
+(setq org-yank-adjusted-subtrees t)
+
+(setq org-src-window-setup 'current-window)
+
+(setq org-special-ctrl-a/e t)
+(setq org-special-ctrl-k t)
+
+(setq org-log-done (quote time))
+(setq org-log-into-drawer t)
+
+(setq org-log-state-notes-insert-after-drawers nil)
+
+; Encrypt all entries before saving
+(org-crypt-use-before-save-magic)
+(setq org-tags-exclude-from-inheritance (quote ("crypt")))
+(setq org-crypt-disable-auto-save nil)
+(setq org-crypt-key nil)
+
+(setq org-return-follows-link t)
+
+(setq org-list-demote-modify-bullet (quote (("+" . "-")
+                                            ("*" . "-")
+                                            ("1." . "-")
+                                            ("1)" . "-")
+                                            ("A)" . "-")
+                                            ("B)" . "-")
+                                            ("a)" . "-")
+                                            ("b)" . "-")
+                                            ("A." . "-")
+                                            ("B." . "-")
+                                            ("a." . "-")
+                                            ("b." . "-"))))
+(setq org-agenda-window-setup 'current-window)
+
+(setq org-src-fontify-natively t)
+(setq org-src-preserve-indentation nil)
+(setq org-edit-src-content-indentation 0)
+
+(setq org-adapt-indentation nil)
+(setq org-startup-truncated nil)
+
+(add-hook 'org-mode-hook 'variable-pitch-mode)

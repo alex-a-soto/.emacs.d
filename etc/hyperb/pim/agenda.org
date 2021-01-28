@@ -1,0 +1,25 @@
+#+TITLE: Personal Information Manager
+#+STARTUP: showall
+
+* Review
+<(Daily)>
+<(Weekly)>
+<(Monthly)>
+* Routines
+<(Morning Routine)>
+<(Bedtime Routine)>
+* Zettelkasten
+<(New Zettel)>
+<(Daily Notes)>
+<(Edit Zettel)>
+
+<(Query tags)>
+<(Replace tag)>
+
+<(Start server)> <(Kill server)>
+<(Open index)>
+<(Open zettel)>
+
+<(Generate site)>
+<(Configuration)>
+<(Refresh cache)>

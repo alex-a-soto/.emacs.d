@@ -6,4 +6,3 @@
 - [ ] Tidy up workspace for tomorrow
 - [ ] Brush teeth
 - [ ] Take medication
-- [ ] Take melatonin

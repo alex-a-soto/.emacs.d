@@ -7,51 +7,49 @@
   (setq treefactor-org-agenda-dir nil)
   (setq user-home-directory "~/")
 
-  (defhydra as/refile ()
-  ("1" as/treefactor-agenda "Agenda")
-  ("2" as/treefactor-linked "Linked")
-  ("3" as/treefactor-dashboard "Dashboard")
-  ("o" other-window "Other Window")
-  ("SPC" treefactor-throw "Throw")
-  ("RET" dired-find-file "Find File")
-  ("<up>" dired-previous-line "Previous Line")
-  ("<down>" dired-next-line "Next Line")
-  ("<backspace>" dired-up-directory "Up dir")
-  ("<tab>" org-cycle "cycle")
-  ("u" treefactor-up "Throw Up")
-  ("k" org-cut-subtree "Cut Subtree")
-  ("q" nil "cancel" :exit t))
+  (defhydra as/refile-hydra (:color pink)
+    "
+    ^
+    ^Dired^               ^Refile^           ^Actions^
+    ^─────^────────────────^──^──────────────────^──^─────
+    _1_ Personal Agenda   _SPC_ Throw...    _t_ Todo...
+    _2_ Personal Linked   _u_ Refile up     _s_ Schedule...
+    _3_ Work Agenda                       _d_ Deadline...
+    _4_ Work Linked                       _k_ Cut
+    _j_ Dired Jump                        _S_ Save...
+                                        _f_ Filter...
+                                        _a_ Add to working set...
+    ^^
+    ^^
+    ^^
+    ^^
+    ^^                  ^^
+    "
+    ("1" as/refile-to-personal-agenda)
+    ("2" as/refile-to-personal-linked)
+    ("3" as/refile-to-work-agenda)
+    ("4" as/refile-to-work-linked)
+    ("j" as/dired-jump-other-window)
 
-  (defun as/process-hud-inbox()
-    (interactive)
-    (find-file "~/HUD/Inbox.org")
-    (goto-char (point-min))
-    (outline-next-heading)
-    (as/refile/body))
+    ("SPC" treefactor-throw)
+    ("u" treefactor-up)
 
-  (defun as/process-file()
-    (interactive)
-    (find-file "~/HUD/process.org")
-    (goto-char (point-min))
-    (outline-next-heading)
-    (outline-next-heading)
-    (outline-next-heading)
-    (as/refile/body))
+    ("t" org-todo)
+    ("s" org-schedule)
+    ("d" org-deadline)
+    ("k" org-cut-subtree)
+    ("S" org-save-all-org-buffers)
+    ("a" (call-interactively 'as/working-set-add))
+    ("f" (call-interactively 'org-ql-sparse-tree))
 
+    ("<up>" dired-previous-line)
+    ("<down>" dired-next-line)
+    ("o" other-window)
+    ("RET" dired-find-file)
+    ("^" dired-up-directory)
+    ("<tab>" org-cycle)
 
-
-  (defun as/treefactor-agenda ()
-    (interactive)
-    (delete-other-windows)
-    (goto-char (point-min))
-    (org-next-visible-heading 1)
-    (if (file-equal-p (substring (directory-file-name buffer-file-truename) 0 22 ) "~/1-Personal/1-Agenda")
-        (dired-other-window "~/1-Personal/1-Agenda")
-      (other-window -1))
-    (if (file-equal-p (substring (directory-file-name buffer-file-truename) 0 18 ) "~/2-Work/1-Agenda")
-        (dired-other-window "~/2-Work/1-Agenda")
-      (other-window -1)))
-
+    ("q" nil "cancel" :exit t))
 
   (defun as/treefactor-dashboard ()
     (interactive)
@@ -61,16 +59,49 @@
     (find-file-other-window "~/HUD/dashboard.org")
     (other-window -1))
 
-  (defun as/treefactor-linked ()
+  (defun as/process-hud-inbox()
+    (interactive)
+    (find-file "~/HUD/Inbox.org")
+    (goto-char (point-min))
+    (outline-next-heading)
+    (as/refile-hydra/body))
+
+  (defun as/process-file()
+    (interactive)
+    (find-file "~/HUD/process.org")
+    (goto-char (point-min))
+    (outline-next-heading)
+    (outline-next-heading)
+    (outline-next-heading)
+    (as/refile-hydra/body))
+
+  (defun as/refile-to-personal-agenda ()
     (interactive)
     (delete-other-windows)
-    (goto-char (point-min))
-    (org-next-visible-heading 1)
-    (if (file-equal-p (substring (directory-file-name buffer-file-truename) 0 22 ) "~/1-Personal/2-Linked")
-        (dired-other-window "~/1-Personal/2-Linked")
-      (other-window -1))
-    (if (file-equal-p (substring (directory-file-name buffer-file-truename) 0 22 ) "~/2-Work/2-Linked")
-        (dired-other-window "~/2-Work/2-Linked")
-      (other-window -1)))
+    (dired-other-window "~/1-Personal/1-Agenda")
+    (other-window -1))
+
+  (defun as/refile-to-work-agenda ()
+    (interactive)
+    (delete-other-windows)
+    (dired-other-window "~/2-Work/1-Agenda")
+    (other-window -1))
+
+  (defun as/refile-to-personal-linked ()
+    (interactive)
+    (delete-other-windows)
+    (dired-other-window "~/1-Personal/2-Linked")
+    (other-window -1))
+
+  (defun as/refile-to-work-linked ()
+    (interactive)
+    (delete-other-windows)
+    (dired-other-window "~/2-Work/2-Linked")
+    (other-window -1))
+
+  (defun as/dired-jump-other-window ()
+    (interactive)
+    (dired-jump-other-window)
+    (other-window -1))
 
   )

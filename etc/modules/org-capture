@@ -2,8 +2,6 @@
 
 (setq org-now-file "~/HUD/daylog.org")
 
-(setq org-refile-targets '(("~/HUD/process.org" :maxlevel . 1)))
-
 (defun my/org-read-datetree-date (d)
   "Parse a time string D and return a date to pass to the datetree functions."
   (let ((dtmp (nthcdr 3 (parse-time-string d))))
@@ -20,8 +18,7 @@
                               (with-current-buffer bfn
                                 (save-excursion
                                   (org-datetree-find-month-create datetree-date)
-                                  (point))))))
-  (setq this-command 'my/org-refile-to-journal))
+                                  (point)))))))
 
 (defun my/refile (file headline)
   (let ((pos (save-excursion
@@ -44,9 +41,9 @@
 
 (setq org-capture-templates
       (quote
-       (("t" "Task" plain (file+function org-now-file my/find-create-date-entry) "** TODO %^{Capture}\n %^{Description}\n%U" :immediate-finish t)
-        ("e" "Event" plain (file+function org-now-file my/find-create-date-entry) "** %^{Event}\n %?\n\n%^{When?}t\n")
-        ("n" "Note" plain (file+function org-now-file my/find-create-date-entry) "** %^{Note}\n %^{Description}\n%U" :immediate-finish t)
+       (("t" "Task" plain (file+function org-now-file my/find-create-date-entry) "** TODO %^{Capture}\n%U" :immediate-finish t)
+        ("e" "Event" plain (file+function org-now-file my/find-create-date-entry) "** TODO %^{Event}\n %?\n\n%^{When?}t\n")
+        ("n" "Note" plain (file+function org-now-file my/find-create-date-entry) "** %^{Note}\n%U" :immediate-finish t)
         ("l" "Link" plain (file+function org-now-file my/find-create-date-entry) "** %(org-cliplink-capture) \n %U \n\n %?" :immediate-finish t)
         ("j" "Journal" plain (file+function org-now-file my/find-create-date-entry) "** %^{Capture}\n %?\n%U")
 
@@ -63,4 +60,5 @@
   (outline-next-heading)
   (my/refile "~/HUD/process.org" "Process")
   (my/org-refile-to-datetree)
+  (find-file "~/HUD/process.org")
   )

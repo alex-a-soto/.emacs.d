@@ -1,6 +1,32 @@
 #!/usr/bin/emacs --script
 (require 'org-agenda)
+(require 'org-habit)
 
+
+(setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                 (org-agenda-files :maxlevel . 9)
+                                 )))
+
+(setq org-agenda-follow-indirect t)
+(setq org-agenda-timegrid-use-ampm t)
+
+(setq org-time-stamp-rounding-minutes (quote (1 1)))
+(setq org-capture-use-agenda-date t)
+
+;; Always higlight the current agenda line
+(add-hook 'org-agenda-mode-hook
+          '(lambda () (hl-line-mode 1))
+          'append)
+
+;; Follow-mode for agenda
+;; (add-hook 'org-agenda-mode-hook
+;;           '(lambda () (org-agenda-follow-mode))
+;;           'append)
+
+(setq org-agenda-include-diary nil)
+
+(defun as/set-org-agenda-files-work ()
+  (interactive)
 (if (boundp 'org-user-agenda-files)
     (setq org-agenda-files org-user-agenda-files)
   (setq org-agenda-files (apply 'append
@@ -8,9 +34,17 @@
                                  (lambda (directory)
                                    (directory-files-recursively
                                     directory org-agenda-file-regexp))
-                                 '("~/1-Personal/1-Agenda" "~/2-Work/1-Agenda")))))
+                                 '("~/2-Work/1-Agenda")))))
+(message "org-agenda-files set to 2-Work"))
 
-
-(setq org-refile-targets (quote ((nil :maxlevel . 9)
-                                 (org-agenda-files :maxlevel . 9)
-                                 )))
+(defun as/set-org-agenda-files-personal ()
+  (interactive)
+(if (boundp 'org-user-agenda-files)
+    (setq org-agenda-files org-user-agenda-files)
+  (setq org-agenda-files (apply 'append
+                                (mapcar
+                                 (lambda (directory)
+                                   (directory-files-recursively
+                                    directory org-agenda-file-regexp))
+                                 '("~/1-Personal/1-Agenda")))))
+(message "org-agenda-files set to 1-Agenda"))

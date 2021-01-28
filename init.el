@@ -12,4 +12,5 @@
                          ))
   (setq modular-config-default 'main)
   (setq modular-config-path "~/.emacs.d/etc/modules")
-  (modular-config-command-line-args-process))
+  (modular-config-command-line-args-process)
+  (load custom-file))
