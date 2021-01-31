@@ -14,12 +14,13 @@
     ^─────^────────────────^──^──────────────────^──^─────
     _1_ Personal Agenda   _SPC_ Throw...    _t_ Todo...
     _2_ Personal Linked   _u_ Refile up     _s_ Schedule...
-    _3_ Work Agenda                       _d_ Deadline...
-    _4_ Work Linked                       _k_ Cut
-    _j_ Dired Jump                        _S_ Save...
-                                        _f_ Filter...
-                                        _a_ Add to working set...
-    ^^
+    _3_ Personal Archive                  _d_ Deadline...
+    ^^                                    _k_ Cut
+    _4_ Work Agenda                       _S_ Save...
+    _5_ Work Linked                       _f_ Filter...
+    _6_ Work Archive
+    ^^                                   _ a_ Add to working set...
+    _j_ Dired Jump
     ^^
     ^^
     ^^
@@ -27,8 +28,12 @@
     "
     ("1" as/refile-to-personal-agenda)
     ("2" as/refile-to-personal-linked)
-    ("3" as/refile-to-work-agenda)
-    ("4" as/refile-to-work-linked)
+    ("3" as/refile-to-personal-archive)
+
+    ("4" as/refile-to-work-agenda)
+    ("5" as/refile-to-work-linked)
+    ("6" as/refile-to-workl-archive)
+
     ("j" as/dired-jump-other-window)
 
     ("SPC" treefactor-throw)
@@ -51,24 +56,16 @@
 
     ("q" nil "cancel" :exit t))
 
-  (defun as/treefactor-dashboard ()
-    (interactive)
-    (delete-other-windows)
-    (goto-char (point-min))
-    (org-next-visible-heading 1)
-    (find-file-other-window "~/HUD/dashboard.org")
-    (other-window -1))
-
   (defun as/process-hud-inbox()
     (interactive)
-    (find-file "~/HUD/Inbox.org")
+    (find-file "./Inbox.org")
     (goto-char (point-min))
     (outline-next-heading)
     (as/refile-hydra/body))
 
   (defun as/process-file()
     (interactive)
-    (find-file "~/HUD/process.org")
+    (find-file "./process.org")
     (goto-char (point-min))
     (outline-next-heading)
     (outline-next-heading)
@@ -92,6 +89,20 @@
     (delete-other-windows)
     (dired-other-window "~/1-Personal/2-Linked")
     (other-window -1))
+
+  (defun as/refile-to-personal-archive ()
+    (interactive)
+    (delete-other-windows)
+    (dired-other-window "~/1-Personal/4-Archive")
+    (other-window -1))
+
+    (defun as/refile-to-work-archive ()
+    (interactive)
+    (delete-other-windows)
+    (dired-other-window "~/2-Work/4-Archive")
+    (other-window -1))
+
+
 
   (defun as/refile-to-work-linked ()
     (interactive)

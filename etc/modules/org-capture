@@ -1,6 +1,6 @@
 #!/usr/bin/emacs --script
 
-(setq org-now-file "~/HUD/daylog.org")
+(setq daylog "~/HUD/daylog.org")
 
 (defun my/org-read-datetree-date (d)
   "Parse a time string D and return a date to pass to the datetree functions."
@@ -18,7 +18,8 @@
                               (with-current-buffer bfn
                                 (save-excursion
                                   (org-datetree-find-month-create datetree-date)
-                                  (point)))))))
+                                  (point))))))
+  (save-buffer))
 
 (defun my/refile (file headline)
   (let ((pos (save-excursion
@@ -41,24 +42,26 @@
 
 (setq org-capture-templates
       (quote
-       (("t" "Task" plain (file+function org-now-file my/find-create-date-entry) "** TODO %^{Capture}\n%U" :immediate-finish t)
-        ("e" "Event" plain (file+function org-now-file my/find-create-date-entry) "** TODO %^{Event}\n %?\n\n%^{When?}t\n")
-        ("n" "Note" plain (file+function org-now-file my/find-create-date-entry) "** %^{Note}\n%U" :immediate-finish t)
-        ("l" "Link" plain (file+function org-now-file my/find-create-date-entry) "** %(org-cliplink-capture) \n %U \n\n %?" :immediate-finish t)
-        ("j" "Journal" plain (file+function org-now-file my/find-create-date-entry) "** %^{Capture}\n %?\n%U")
+       (
+        ("t" "Task" plain (file+function daylog my/find-create-date-entry) "** TODO %^{Capture}\n%U" :immediate-finish t)
+        ("e" "Event" plain (file+function daylog my/find-create-date-entry) "** TODO %^{Event}\n %?\n\n%^{When?}t\n")
+        ("n" "Note" plain (file+function daylog my/find-create-date-entry) "** %^{Note}\n%U" :immediate-finish t)
+        ("l" "Link" plain (file+function daylog my/find-create-date-entry) "** %(org-cliplink-capture) \n %U \n\n %?" :immediate-finish t)
+        ("j" "Journal" plain (file+function daylog my/find-create-date-entry) "** %^{Capture}\n %?\n%U")
 
         ("r" "Routines")
-        ("rm" "Morning" plain (file+function org-now-file my/find-create-date-entry) (file "~/.emacs.d/etc/templates/morning-routine.org"))
-        ("re" "Evening" plain (file+function org-now-file my/find-create-date-entry) (file "~/.emacs.d/etc/templates/evening-routine.org"))
-        ("rn" "Night" plain (file+function org-now-file my/find-create-date-entry) (file "~/.emacs.d/etc/templates/night-routine.org"))
+        ("rm" "Morning" plain (file+function daylog my/find-create-date-entry) (file "~/.emacs.d/etc/templates/morning-routine.org"))
+        ("re" "Evening" plain (file+function daylog my/find-create-date-entry) (file "~/.emacs.d/etc/templates/evening-routine.org"))
+        ("rn" "Night" plain (file+function daylog my/find-create-date-entry) (file "~/.emacs.d/etc/templates/night-routine.org"))
+
         )))
 
 (defun as/dup-process-daylog ()
   (interactive)
-  (find-file "~/HUD/daylog.org")
+  (find-file "./daylog.org")
   (goto-char (point-min))
   (outline-next-heading)
-  (my/refile "~/HUD/process.org" "Process")
+  (my/refile "./process.org" "Process")
   (my/org-refile-to-datetree)
-  (find-file "~/HUD/process.org")
+  (find-file "./process.org")
   )

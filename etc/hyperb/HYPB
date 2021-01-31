@@ -42,12 +42,11 @@
 <(Clock-in)>
 (Clock-out)>
 <(Capture: Thought)>
-<(Dashboard)>
-<(Refile)>
-<(Daylog)>
-<(Process)>
-<(Inbox)>
-<(Pomodoro)>
+(Refile)>
+(Process)>
+(Pomodoro)>
 <(Last capture)>
 <(Journal)>
 <(org-working-set)>
+<(Dashboard)>
+<(Daylog)>
