@@ -7,7 +7,6 @@
              hkey-either
              action-key)
   :init
- ; (add-hook 'hyperbole-init-hook 'hmouse-add-unshifted-smart-keys)
   (setq hbmap:dir-user (concat "~/.emacs.d/etc/hyperb/"))
   (setq hbmap:dir-filename (concat "~/.emacs.d/etc/hyperb/HBMAP"))
   (setq hattr:filename "hypb")

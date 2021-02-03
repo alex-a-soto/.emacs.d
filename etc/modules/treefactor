@@ -3,7 +3,7 @@
 (use-package treefactor
   :straight t
   :config
-  (setq treefactor-inbox-file-header "** Inbox.org\n:PROPERTIES:\n:VISIBILITY: children\n:END:\n\n")
+  (setq treefactor-inbox-file-header "* Inbox.org\n:PROPERTIES:\n:VISIBILITY: children\n:END:\n\n")
   (setq treefactor-org-agenda-dir nil)
   (setq user-home-directory "~/")
 

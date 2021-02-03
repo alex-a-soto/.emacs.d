@@ -1,2 +1,6 @@
 ;;; -*- coding: utf-8 -*-
-nil
+(("/home/alexander/.bin/nixos-config/"
+  (dired-filename . "/home/alexander/.bin/nixos-config/desktop.nix"))
+ ("/home/alexander/.bin/nixos-config/modules/"
+  (dired-filename . "/home/alexander/.bin/nixos-config/modules/syncthing.nix"))
+ ("/home/alexander/.bin/nixos-config/modules/syncthing.nix" . 718))

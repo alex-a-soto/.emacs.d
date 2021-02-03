@@ -1,7 +1,7 @@
 #!/usr/bin/emacs --script
 (require 'org-habit)
 
-(modular-config-load-modules '(org-capture org-cliplink org-download pomodoro org-working-set org-agenda org-ql org-clock))
+(modular-config-load-modules '(org-capture org-cliplink org-download pomodoro org-agenda org-ql org-clock org-working-set))
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
@@ -95,3 +95,5 @@
 (setq org-startup-truncated nil)
 
 (add-hook 'org-mode-hook 'variable-pitch-mode)
+
+(as/set-org-agenda-files-personal)

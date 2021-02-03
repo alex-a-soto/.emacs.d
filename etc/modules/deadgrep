@@ -34,6 +34,12 @@ don't actually start the search."
   (let* ((title (read-from-minibuffer "Search term: ")))
     (dg-current-directory title (concat dired-directory (thing-at-point 'filename)))))
 
+(defun as/deadgrep-global ()
+  (interactive)
+  (let* ((title (read-from-minibuffer "Search term: ")))
+    (dg-current-directory title "~/")))
+
+
 (define-key dired-mode-map (kbd "s") 'as/dired-deadgrep)
 
 

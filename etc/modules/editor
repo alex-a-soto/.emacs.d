@@ -6,7 +6,6 @@
                                general
                                modalka
                                yasnippet
-                               hyperbole
                                bookmark-plus
                                crux
                                openwith
@@ -15,7 +14,8 @@
                                anki-editor
                                pdf-tools
                                super-save
-                               edit-indirect))
+                               edit-indirect
+                               hyperbole))
 
 (setq delete-by-moving-to-trash t)
 

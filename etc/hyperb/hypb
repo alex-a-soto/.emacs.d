@@ -1,12 +1,14 @@
 
 "HYPB"
+("Go_to_active_clock" nil nil eval-elisp ((org-clock-goto)) "alexander@alpha" "20210203:15:46:55" nil nil)
+("Go_to_Journal" nil nil eval-elisp ((find-file "../1-Personal/2-Linked/4-Time/1-Me/Journal/1-Source/Inbox.org")) "alexander@alpha" "20210203:15:46:09" nil nil)
 ("Daylog" nil nil eval-elisp ((find-file "~/HUD/daylog.org")) "alexander@alpha" "20210128:22:06:29" nil nil)
 ("Dashboard" nil nil eval-elisp ((find-file "~/HUD/dashboard.org")) "alexander@alpha" "20210128:22:03:56" nil nil)
 ("Last_capture" nil nil link-to-bookmark ("org-capture-last-stored") "alexander@alpha" "20210105:19:34:48" "alexander" "20210107:19:26:23")
 ("Pomodoro" nil nil eval-elisp ((org-pomodoro)) "alexander@alpha" "20201229:20:04:28" nil nil)
 ("Process" nil nil eval-elisp ((find-file "~/HUD/process.org")) "alexander@alpha" "20201208:18:51:06" nil nil)
 ("Bookmarks:_Jump" nil nil eval-elisp ((call-interactively 'bookmark-jump)) "alexander.soto@gmail.com" "20200907:03:30:03" "alexander.soto" "20200907:03:30:19")
-("Search" nil nil eval-elisp ((call-interactively (quote dg-current-directory))) "alexander.soto@gmail.com" "20200804:14:09:41" "alexander.soto" "20200811:18:54:17")
+("Search" nil nil eval-elisp ((as/deadgrep-global)) "alexander.soto@gmail.com" "20200804:14:09:41" "alexander@alpha" "20210203:17:08:56")
 ("Bookmarks:_Save" nil nil eval-elisp ((call-interactively (quote bookmark-bmenu-save))) "alexander.soto@gmail.com" "20200716:14:24:42" "alexander.soto" "20200812:18:14:41")
 ("Bookmarks:_View" nil nil eval-elisp ((call-interactively (quote bookmark-bmenu-list))) "alexander.soto@gmail.com" "20200714:19:09:17" "alexander.soto" "20200812:18:14:29")
 ("Bookmarks:_Create" nil nil eval-elisp ((call-interactively (quote bookmark-set))) "alexander.soto@gmail.com" "20200714:18:49:59" "alexander.soto" "20200812:18:15:17")

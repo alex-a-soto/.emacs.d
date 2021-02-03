@@ -61,7 +61,7 @@
   (find-file "./daylog.org")
   (goto-char (point-min))
   (outline-next-heading)
-  (my/refile "./process.org" "Process")
+  (my/refile "./process.org" "Daylogs")
   (my/org-refile-to-datetree)
   (find-file "./process.org")
   )
