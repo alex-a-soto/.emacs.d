@@ -14,7 +14,3 @@
   (other-window 1 nil)
   (call-interactively 'org-attach-dired-to-subtree)
   )
-
-(use-package howm
-  :straight t
-  )

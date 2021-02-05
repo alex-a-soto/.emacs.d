@@ -43,11 +43,12 @@
 (setq org-capture-templates
       (quote
        (
-        ("t" "Task" plain (file+function daylog my/find-create-date-entry) "** TODO %^{Capture}\n%U" :immediate-finish t)
+        ("t" "Task" plain (file+function daylog my/find-create-date-entry) "** TODO %^{Capture}\n%U \n\n %?")
         ("e" "Event" plain (file+function daylog my/find-create-date-entry) "** TODO %^{Event}\n %?\n\n%^{When?}t\n")
         ("n" "Note" plain (file+function daylog my/find-create-date-entry) "** %^{Note}\n%U" :immediate-finish t)
         ("l" "Link" plain (file+function daylog my/find-create-date-entry) "** %(org-cliplink-capture) \n %U \n\n %?" :immediate-finish t)
         ("j" "Journal" plain (file+function daylog my/find-create-date-entry) "** %^{Capture}\n %?\n%U")
+        ("p" "Pomodoro" plain (file+function daylog my/find-create-date-entry) "** %^{Capture}\n %?\n%U" :clock-in t)
 
         ("r" "Routines")
         ("rm" "Morning" plain (file+function daylog my/find-create-date-entry) (file "~/.emacs.d/etc/templates/morning-routine.org"))

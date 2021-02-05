@@ -1,5 +1,8 @@
 
 "HYPB"
+("Go_to_Now" nil nil eval-elisp ((find-file "~/HUD/now.org")) "alexander@alpha" "20210204:17:07:50" "alexander" "20210204:17:08:07")
+("Filter_subtree" nil nil eval-elisp ((call-interactively 'org-sparse-tree)) "alexander@alpha" "20210204:16:48:59" nil nil)
+("Highlight" nil nil eval-elisp ((call-interactively 'highlight-regexp)) "alexander@alpha" "20210204:16:48:17" "alexander" "20210204:16:48:29")
 ("Go_to_active_clock" nil nil eval-elisp ((org-clock-goto)) "alexander@alpha" "20210203:15:46:55" nil nil)
 ("Go_to_Journal" nil nil eval-elisp ((find-file "../1-Personal/2-Linked/4-Time/1-Me/Journal/1-Source/Inbox.org")) "alexander@alpha" "20210203:15:46:09" nil nil)
 ("Daylog" nil nil eval-elisp ((find-file "~/HUD/daylog.org")) "alexander@alpha" "20210128:22:06:29" nil nil)

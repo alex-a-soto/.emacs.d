@@ -21,9 +21,6 @@
     _6_ Work Archive
     ^^                                   _ a_ Add to working set...
     _j_ Dired Jump
-    ^^
-    ^^
-    ^^
     ^^                  ^^
     "
     ("1" as/refile-to-personal-agenda)
@@ -45,7 +42,7 @@
     ("k" org-cut-subtree)
     ("S" org-save-all-org-buffers)
     ("a" (call-interactively 'as/working-set-add))
-    ("f" (call-interactively 'org-ql-sparse-tree))
+    ("f" (call-interactively 'org-sparse-tree))
 
     ("<up>" dired-previous-line)
     ("<down>" dired-next-line)

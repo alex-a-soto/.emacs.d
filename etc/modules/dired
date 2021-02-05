@@ -15,6 +15,7 @@
 (use-package dired-subtree
   :straight t
   :config
+  (setq dired-subtree-use-backgrounds nil)
   (bind-keys :map dired-mode-map
              ("i" . dired-subtree-insert)
              (";" . dired-subtree-remove)))

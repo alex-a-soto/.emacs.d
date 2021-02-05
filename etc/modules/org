@@ -53,7 +53,7 @@
 
 (setq org-hide-leading-stars nil)
 
-(setq org-yank-adjusted-subtrees t)
+(setq org-yank-adjusted-subtrees nil)
 
 (setq org-src-window-setup 'current-window)
 
