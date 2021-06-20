@@ -1,0 +1,12 @@
+#!/usr/bin/emacs --script
+
+(use-package double-saber
+  :straight t
+  :config
+(with-eval-after-load "deadgrep"
+  (add-hook 'deadgrep-mode-hook
+            (lambda ()
+              (double-saber-mode)
+              (setq-local double-saber-start-line 5)
+              (setq-local double-saber-end-text "Deadgrep finished"))))
+  )

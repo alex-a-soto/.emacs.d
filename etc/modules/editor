@@ -14,7 +14,9 @@
                                anki-editor
                                pdf-tools
                                super-save
+                               anzu
                                edit-indirect
+                               flycheck
                                hyperbole))
 
 (setq delete-by-moving-to-trash t)

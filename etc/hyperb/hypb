@@ -1,10 +1,17 @@
 
 "HYPB"
-("Go_to_Now" nil nil eval-elisp ((find-file "~/HUD/now.org")) "alexander@alpha" "20210204:17:07:50" "alexander" "20210204:17:08:07")
+("Inbox" nil nil eval-elisp ((find-file "~/HUD/Inbox.org")) "alexander@alpha" "20210322:18:49:32" "alexander" "20210322:18:49:42")
+("Scratch" nil nil eval-elisp ((find-file "~/HUD/scratch.org")) "alexander@alpha" "20210302:23:19:24" nil nil)
+("Calendar" nil nil eval-elisp ((org-agenda nil "a")) "alexander@alpha" "20210222:02:19:14" nil nil)
+("Refine_Results" nil nil eval-elisp ((call-interactively 'double-saber-delete)) "alexander@alpha" "20210222:01:34:10" "alexander" "20210222:01:34:29")
+("Narrow_Results" nil nil eval-elisp ((call-interactively 'double-saber-narrow)) "alexander@alpha" "20210221:22:30:49" "alexander" "20210221:22:32:04")
+("Blog" nil nil eval-elisp ((find-file "~/HUD/blog.org")) "alexander@alpha" "20210217:22:34:40" nil nil)
+("Habits" nil nil eval-elisp ((find-file "~/1-Personal/1-Agenda/4-Time/1-Me/Habits/Inbox.org")) "alexander@alpha" "20210206:15:05:57" nil nil)
+("Now" nil nil eval-elisp ((find-file "~/HUD/now.org")) "alexander@alpha" "20210204:17:07:50" "alexander" "20210322:18:49:57")
 ("Filter_subtree" nil nil eval-elisp ((call-interactively 'org-sparse-tree)) "alexander@alpha" "20210204:16:48:59" nil nil)
 ("Highlight" nil nil eval-elisp ((call-interactively 'highlight-regexp)) "alexander@alpha" "20210204:16:48:17" "alexander" "20210204:16:48:29")
 ("Go_to_active_clock" nil nil eval-elisp ((org-clock-goto)) "alexander@alpha" "20210203:15:46:55" nil nil)
-("Go_to_Journal" nil nil eval-elisp ((find-file "../1-Personal/2-Linked/4-Time/1-Me/Journal/1-Source/Inbox.org")) "alexander@alpha" "20210203:15:46:09" nil nil)
+("Journal" nil nil eval-elisp ((find-file "../1-Personal/2-Linked/4-Time/1-Me/Journal/1-Source/Inbox.org")) "alexander@alpha" "20210203:15:46:09" "alexander" "20210322:18:50:13")
 ("Daylog" nil nil eval-elisp ((find-file "~/HUD/daylog.org")) "alexander@alpha" "20210128:22:06:29" nil nil)
 ("Dashboard" nil nil eval-elisp ((find-file "~/HUD/dashboard.org")) "alexander@alpha" "20210128:22:03:56" nil nil)
 ("Last_capture" nil nil link-to-bookmark ("org-capture-last-stored") "alexander@alpha" "20210105:19:34:48" "alexander" "20210107:19:26:23")

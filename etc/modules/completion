@@ -3,4 +3,5 @@
 (modular-config-load-modules '(ctrlf
                                selectrum
                                deadgrep
+                               double-saber
                                company))

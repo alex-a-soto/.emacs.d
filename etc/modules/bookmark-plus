@@ -2,5 +2,4 @@
 
 ;;; bookmark-plus
 (use-package bookmark+
-  :straight (bookmark-plus :type git :host github :repo "emacsmirror/bookmark-plus")
-  :defer 1)
+  :straight (bookmark-plus :type git :host github :repo "emacsmirror/bookmark-plus"))

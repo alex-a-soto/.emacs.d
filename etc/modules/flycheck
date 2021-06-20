@@ -1,0 +1,7 @@
+#!/usr/bin/emacs --script
+
+(use-package flycheck
+  :straight t
+  :config
+  (require 'flycheck)
+  )

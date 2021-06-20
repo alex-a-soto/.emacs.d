@@ -3,10 +3,10 @@
 2. [ ] Drink water
 3. [ ] Take supplements
 4. [ ] Make bed
-5. [ ] Meditate - https://my.headspace.com/
-6. [ ] Shower
-7. [ ] Get dressed
-8. [ ] Make tea
+5. [ ] Shower
+6. [ ] Get dressed
+7. [ ] Make tea
+8. [ ] Breakfast
 9. [ ] Review, reflect, close open loops
    1. [ ] Work Calendar - https://calendar.google.com/calendar/u/0/r
    2. [ ] Personal Calendar - https://calendar.google.com/calendar/u/1/r
@@ -15,6 +15,4 @@
    5. [ ] Slack - https://app.slack.com/client/T03SUKX53/unreads
    6. [ ] Online Messengers
 10. [ ] Review tasks and projects for the day.
-11. [ ] Journal
-12. [ ] Words of affirmation: loved ones, family and friends
-13. [ ] Breakfast
+11. [ ] Words of affirmation: loved ones, family and friends

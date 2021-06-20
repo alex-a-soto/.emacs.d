@@ -1,0 +1,6 @@
+#!/usr/bin/emacs --script
+
+(modular-config-load-modules '(neuron-mode
+                               ))
+
+(find-file "~/HUD/blog.org")

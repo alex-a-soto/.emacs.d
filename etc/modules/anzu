@@ -1,0 +1,5 @@
+#!/usr/bin/emacs --script
+
+(use-package anzu
+:straight t
+)

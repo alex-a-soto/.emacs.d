@@ -36,7 +36,7 @@
                                  (lambda (directory)
                                    (directory-files-recursively
                                     directory org-agenda-file-regexp))
-                                 '("~/2-Work/1-Agenda")))))
+                                 '("~/2-Work/1-Agenda" "~/HUD")))))
 (message "org-agenda-files set to 2-Work"))
 
 (defun as/set-org-agenda-files-personal ()
@@ -48,5 +48,17 @@
                                  (lambda (directory)
                                    (directory-files-recursively
                                     directory org-agenda-file-regexp))
-                                 '("~/1-Personal/1-Agenda")))))
+                                 '("~/1-Personal/1-Agenda" "~/HUD")))))
 (message "org-agenda-files set to 1-Agenda"))
+
+(defun as/set-org-agenda-files-foss ()
+  (interactive)
+(if (boundp 'org-user-agenda-files)
+    (setq org-agenda-files org-user-agenda-files)
+  (setq org-agenda-files (apply 'append
+                                (mapcar
+                                 (lambda (directory)
+                                   (directory-files-recursively
+                                    directory org-agenda-file-regexp))
+                                 '("~/3-FOSS/1-Agenda" "~/HUD")))))
+(message "org-agenda-files set to 3-FOSS"))

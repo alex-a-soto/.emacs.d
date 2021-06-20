@@ -13,23 +13,25 @@
     ^Dired^               ^Refile^           ^Actions^
     ^─────^────────────────^──^──────────────────^──^─────
     _1_ Personal Agenda   _SPC_ Throw...    _t_ Todo...
-    _2_ Personal Linked   _u_ Refile up     _s_ Schedule...
-    _3_ Personal Archive                  _d_ Deadline...
-    ^^                                    _k_ Cut
-    _4_ Work Agenda                       _S_ Save...
-    _5_ Work Linked                       _f_ Filter...
-    _6_ Work Archive
-    ^^                                   _ a_ Add to working set...
-    _j_ Dired Jump
+    _2_ Personal Linked   _u_ Up            _s_ Schedule...
+    ^^                                    _d_ Deadline...
+    _3_ Work Agenda
+    _4_ Work Linked                       _f_ Filter...
+
+    _5_ FOSS Agenda
+    _6_ FOSS Linked
+    ^^                                    _r_ Sort...
+    _j_ Dired Jump                        _ a_ Add to working set...
     ^^                  ^^
     "
     ("1" as/refile-to-personal-agenda)
     ("2" as/refile-to-personal-linked)
-    ("3" as/refile-to-personal-archive)
 
-    ("4" as/refile-to-work-agenda)
-    ("5" as/refile-to-work-linked)
-    ("6" as/refile-to-workl-archive)
+    ("3" as/refile-to-work-agenda)
+    ("4" as/refile-to-work-linked)
+
+    ("5" as/refile-to-foss-agenda)
+    ("6" as/refile-to-foss-linked)
 
     ("j" as/dired-jump-other-window)
 
@@ -43,6 +45,7 @@
     ("S" org-save-all-org-buffers)
     ("a" (call-interactively 'as/working-set-add))
     ("f" (call-interactively 'org-sparse-tree))
+    ("r" (call-interactively 'org-sort))
 
     ("<up>" dired-previous-line)
     ("<down>" dired-next-line)
@@ -73,43 +76,53 @@
     (interactive)
     (delete-other-windows)
     (dired-other-window "~/1-Personal/1-Agenda")
-    (other-window -1))
+    (other-window 1))
 
   (defun as/refile-to-work-agenda ()
     (interactive)
     (delete-other-windows)
     (dired-other-window "~/2-Work/1-Agenda")
-    (other-window -1))
+    (other-window 1))
 
   (defun as/refile-to-personal-linked ()
     (interactive)
     (delete-other-windows)
     (dired-other-window "~/1-Personal/2-Linked")
-    (other-window -1))
+    (other-window 1))
 
   (defun as/refile-to-personal-archive ()
     (interactive)
     (delete-other-windows)
     (dired-other-window "~/1-Personal/4-Archive")
-    (other-window -1))
+    (other-window 1))
 
     (defun as/refile-to-work-archive ()
     (interactive)
     (delete-other-windows)
     (dired-other-window "~/2-Work/4-Archive")
-    (other-window -1))
+    (other-window 1))
 
+    (defun as/refile-to-foss-agenda ()
+      (interactive)
+      (delete-other-windows)
+      (dired-other-window "~/3-FOSS/1-Agenda")
+      (other-window 1))
 
+    (defun as/refile-to-foss-linked ()
+      (interactive)
+      (delete-other-windows)
+      (dired-other-window "~/3-FOSS/2-Linked")
+      (other-window 1))
 
   (defun as/refile-to-work-linked ()
     (interactive)
     (delete-other-windows)
     (dired-other-window "~/2-Work/2-Linked")
-    (other-window -1))
+    (other-window 1))
 
   (defun as/dired-jump-other-window ()
     (interactive)
     (dired-jump-other-window)
-    (other-window -1))
+    (other-window 1))
 
   )

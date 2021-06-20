@@ -78,7 +78,8 @@
       "n"  'org-tree-to-indirect-buffer
       "o"  'other-window
       "p"  'ignore
-      "q"  'org-working-set--circle-switch-to-menu
+      "q"  'ignore
+;      "q"  'org-working-set--circle-switch-to-menu
       "r"  'treefactor-throw
       "s"  'swiper
       "t"  'as/refile-hydra/body

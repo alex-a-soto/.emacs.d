@@ -5,9 +5,9 @@
   (setq modular-config-list '(
                          (none ())
                          (news (core elfeed org-capture news))
-                         (prog (core outshine))
+                         (prog (core))
                          (agenda (core org-ql treefactor org-agenda))
-                         (blog (core neuron-mode))
+                         (blog (core blog))
                          (main (core main))
                          ))
   (setq modular-config-default 'main)
@@ -15,3 +15,6 @@
   (modular-config-command-line-args-process)
   (load custom-file)
   )
+
+;; (add-to-list 'load-path "~/nano-emacs")
+;; (require 'nano)

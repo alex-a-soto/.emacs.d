@@ -50,8 +50,15 @@
 <(org-working-set)>
 <(Dashboard)>
 <(Daylog)>
-<(Go to Journal)>
+<(Journal)>
 <(Go to active clock)>
 <(Highlight)>
 <(Filter subtree)>
-<(Go to Now)>
+<(Now)>
+<(Habits)>
+<(Blog)>
+<(Narrow Results)>
+<(Refine Results)>
+<(Calendar)>
+<(Scratch)>
+<(Inbox)>
